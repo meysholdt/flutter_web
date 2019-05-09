@@ -6,3 +6,4 @@ tasks:
       flutter packages pub global activate webdev &&
       pub get &&
       webdev serve
+privileged: true
