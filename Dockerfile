@@ -2,17 +2,21 @@ FROM ubuntu
 
 RUN apt-get update && apt-get install -y \
   bash \
-  curl \ 
+  curl \
   git \
   unzip \
   xz-utils \
   wget \
+  net-tools \
+  tcpdump \
+  sudo \
   lib32stdc++6 \
   libglu1-mesa
 
 # add 'gitpod' user and permit "sudo -u seluser". 'seluser' is the standard user from selenium.
 RUN addgroup --gid 33333 gitpod \
- && useradd --no-log-init --create-home --home-dir /home/gitpod --shell /bin/bash --uid 33333 --gid 33333 gitpod
+ && useradd --no-log-init --create-home --home-dir /home/gitpod --shell /bin/bash --uid 33333 --gid 33333 gitpod \
+ && echo "gitpod ALL=(seluser) NOPASSWD: ALL" >> /etc/sudoers
 
 USER gitpod
 
