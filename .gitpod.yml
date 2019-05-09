@@ -1,0 +1,8 @@
+image:
+  file: Dockerfile
+tasks:
+  - command: >
+      cd examples/hello_world/ &&
+      flutter packages pub global activate webdev &&
+      pub get &&
+      webdev serve
